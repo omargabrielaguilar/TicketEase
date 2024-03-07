@@ -19,8 +19,8 @@ return new class extends Migration {
             $table->timestamp('token_used')->nullable();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('group_id')->constrained('groups');
-            // $table->foreignId('created_by')->constrained('users');
-            // $table->timestamp('created_at')->nullable();
+            $table->foreignId('created_by')->constrained('users');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
