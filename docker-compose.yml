@@ -1,0 +1,23 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - APP_KEY=
+    depends_on:
+      - sqlite
+
+  sqlite:
+    image: nouchka/sqlite3
+    container_name: sqlite_db
+    volumes:
+      - ./database/database.sqlite:/var/www/html/database.sqlite
+    command: ["sqlite3", "/var/www/html/database.sqlite"]
