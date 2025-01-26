@@ -7,17 +7,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable   
+class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-            use HasFactory, Notifiable; 
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
-    protected $fillable = [       'name',
+    protected $fillable = [
+        'name',
         'email',
         'password',
     ];
